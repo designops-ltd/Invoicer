@@ -1,0 +1,1 @@
+<?php include "code/pages/upload.inc.php"?>
