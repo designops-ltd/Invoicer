@@ -22,8 +22,8 @@ Invoicer can  be integrated into larger Enterprise / E-commerce workflow where d
 
 ## Credits
 This application uses Open Source components. We acknowledge and are grateful to these developers for their contributions to open source.
-[PHPExcel](https://phpexcel.codeplex.com)
-[FPDF](http://www.fpdf.org)
+- [PHPExcel](https://phpexcel.codeplex.com)
+- [FPDF](http://www.fpdf.org)
 
 ## License
 Released under MIT License (MIT)
