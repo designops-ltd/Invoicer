@@ -89,8 +89,9 @@
 			$pageLines = array();
 			$linesHeight = 0;
 			while(count($invoiceLines) > 0) {
-				if($linesHeight + $invoiceLines[0]->paddedHeight < $linesSpaceNoTotals) {
-					$linesHeight += $invoiceLines[0]->paddedHeight;
+				$paddedHeight = is_numeric($invoiceLines[0]->paddedHeight) ? $invoiceLines[0]->paddedHeight : 0;
+				if($linesHeight + $paddedHeight < $linesSpaceNoTotals) {
+					$linesHeight += $paddedHeight;
 					$pageLines[] = array_shift($invoiceLines);
 				} else {
 					break;
@@ -402,7 +403,7 @@
 				$this->pdf->SetXY($cfg["TABLE_AMOUNT_LEFT"], $currentY);
 				$this->pdf->Cell($totalsRCellWidth, $cfg["INVOICELINE_TEXT_HEIGHT"], $this->formatPounds($invoiceLine->getNetAmount()), 0, 0, "R");
 
-				$currentY += $invoiceLine->height;
+				$currentY += is_numeric($invoiceLine->height) ? $invoiceLine->height : 0;
 				if($this->debugColour) {
 					$this->pdf->SetDrawColor(0, 0xFF, 0xFF);
 					$this->pdf->Line($tableTLX, $currentY, $cfg["TABLE_RIGHT"], $currentY);
